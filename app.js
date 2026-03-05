@@ -1,10 +1,5 @@
-const API_URL = 'https://ai.hackclub.com/proxy/v1/chat/completions';
+const API_URL = '/api/rap';
 const MODEL   = 'qwen/qwen3-32b';
-
-function getApiKey() {
-    return "sk-hc-v1-14be685cb1814a24825916b19d96308cfaacd192dd7c47f0a26532adeb7b729b"
-}
-
 
 let items         = [];
 let selectedStyle = 'old school';
@@ -115,7 +110,6 @@ async function generateRap() {
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + getApiKey(),
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
