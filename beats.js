@@ -25,7 +25,7 @@ const bass = new Tone.MembraneSynth({
 }).toDestination();
 
 
-const PATTERS = {
+const PATTERNS = {
     'old school': {
         bpm: 95,
         kick: [1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0],

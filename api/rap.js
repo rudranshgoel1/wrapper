@@ -9,12 +9,12 @@ export default async function handler(req, res) {
     }
 
     try {
-        const apiKey = process.env.HACKCLUB_API_KEY;
+        const apiKey = process.env.OPENROUTER_API_KEY;
         if (!apiKey) {
             return res.status(500).json({ error: 'Missing API key configuration' });
         }
 
-        const response = await fetch('https://ai.hackclub.com/proxy/v1/chat/completions', {
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${apiKey}`,

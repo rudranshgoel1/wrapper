@@ -1,5 +1,5 @@
 const API_URL = '/api/rap';
-const MODEL   = 'qwen/qwen3-32b';
+const MODEL   = 'mistralai/mistral-7b-instruct';
 
 let items         = [];
 let selectedStyle = 'old school';
