@@ -9,10 +9,15 @@ export default async function handler(req, res) {
     }
 
     try {
+        const apiKey = process.env.HACKCLUB_API_KEY;
+        if (!apiKey) {
+            return res.status(500).json({ error: 'Missing API key configuration' });
+        }
+
         const response = await fetch('https://ai.hackclub.com/proxy/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer sk-hc-v1-14be685cb1814a24825916b19d96308cfaacd192dd7c47f0a26532adeb7b729b',
+                'Authorization': `Bearer ${apiKey}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(body),
