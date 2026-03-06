@@ -1,5 +1,5 @@
 const API_URL = '/api/rap';
-const MODEL   = 'meta-llama/llama-3.3-70b-instruct:free';
+const MODEL   = 'google/gemini-2.5-flash';
 
 let items         = [];
 let selectedStyle = 'old school';
