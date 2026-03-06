@@ -3,9 +3,15 @@ export default async function handler(req, res) {
 
     let body;
     try {
-        body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        if (typeof req.body === 'string') {
+            body = JSON.parse(req.body);
+        } else if (req.body && typeof req.body === 'object') {
+            body = req.body;
+        } else {
+            return res.status(400).json({ error: 'Invalid or missing request body' });
+        }
     } catch (e) {
-        return res.status(400).json({ error: 'Invalid JSON body' });
+        return res.status(400).json({ error: 'Invalid JSON in request body: ' + e.message });
     }
 
     try {
