@@ -1,5 +1,5 @@
 const API_URL = '/api/rap';
-const MODEL   = 'mistralai/mistral-7b-instruct:free';
+const MODEL   = 'mistralai/mistral-small-3.1-24b-instruct:free';
 
 let items         = [];
 let selectedStyle = 'old school';
