@@ -115,6 +115,18 @@
         </button>
       </div>
 
+      <!-- Beat-->
+      <div class="panel-block">
+        <div class="panel-block-header">
+          <span class="panel-block-title">Beat</span>
+          <span class="panel-block-note" id="beat-bpm-note"></span>
+        </div>
+        <button class="btn btn-race" id="btn-beat" onclick="toggleBeat()" style="background:var(--paper); color:var(--ink);">
+          <span>&#9654;</span>
+          <span class="btn-race-label" id="btn-beat-label">Play Beat</span>
+        </button>
+      </div>
+
       <!-- Log -->
       <div class="panel-block panel-block--log">
         <div class="panel-block-header">
@@ -129,6 +141,8 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
   <script src="app.js"></script>
+  <script src="beats.js"></script>
 </body>
 </html>

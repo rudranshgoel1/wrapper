@@ -223,3 +223,29 @@ itemInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') addItem();
 
 updateStats();
 renderItems();
+
+async function toggleBeat() {
+  const btn = document.getElementById('btn-beat');
+  const btnLabel = document.getElementById('btn-beat-label');
+  const bpmNote = document.getElementById('beat-bpm-note');
+  const icon = btn.querySelector('.btn-race-icon');
+
+  if (isBeatPlaying()) {
+    stopBeat();
+    btn.style.background = 'var(-paper)';
+    btn.style.color = 'var(--ink)';
+    icon.textContent = '\u25B6';
+    btnLabel.textContent = 'Play Beat';
+    bpmNote.textContent = '';
+    addLog('Beat stopped.', 'info');
+  } else {
+    await startBeat(selectedStyle);
+    const bpm = { 'old school': 95, 'trap': 140, 'boom bap': 90, 'drill': 145, 'conscious': 88, 'funny comedic': 100 }[selectedStyle] || 95;
+    btn.style.background = 'var(--ink)';
+    btn.style.color = 'var(--paper)';
+    icon.textContent = '\u23F9';
+    btnLabel.textContent = 'Stop Beat';
+    bpmNote.textContent = bpm + ' bpm';
+    addLog('Beat started: ' + selectedStyle + ' at ' + bpm + ' BPM', 'win');
+  }
+}
